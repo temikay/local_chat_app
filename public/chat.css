@@ -1,0 +1,366 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+    background: url('./3548823.jpg') no-repeat center center fixed;
+    margin: 0;
+    padding: 0;
+    /* overflow-y: hidden; */
+}
+
+#chat-container{
+    /* max-width: 390px; */
+    width: 80%;
+    max-width: 700px;
+    margin: auto;
+    /* overflow: hidden; */
+    overflow-y: auto !important;
+    padding: 30px;
+    background: white;
+    margin-top: 50px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#username, #department{
+    margin-bottom: 15px !important;
+    
+}
+
+#headerArea {
+    text-align: center;
+    margin-bottom: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+h1, h2, h3{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    /* margin: 20px auto; */
+    color: #333;
+}
+
+#logo {
+    align-items: center;
+    display: block;
+    margin: 20px auto;
+    height: 110px;
+    width: 100px;
+}
+#mainTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.shrink-header #logo {
+    width: 70px;
+    height: 70px;
+}
+
+.shrink-header #mainTitle {
+    font-size: 1.2rem;
+}
+#messages{
+    border: 1px solid #ddd;
+    height: 500px;
+    line-height: 20px;
+    max-height: 45vh;
+    overflow-y: auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fafafa;
+}
+
+.message{
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12px;
+}
+
+.system-message{
+    font-style: italic;
+    color: #888;
+}
+
+.message-header{
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 4px;
+}
+.message-body{
+    background: #e9f0ff;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+.system {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    font-size: 13px;
+}
+
+.input-area{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    padding: 10px 12px;
+}
+
+.input-area textarea{
+    flex: 4;
+    height: 70px;
+    resize: none;
+    padding: 10px;
+    border-radius: 4px;
+    resize: vertical;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-area textarea:focus{
+    border-color: #007bff;
+}
+
+.head-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+.logo-small {
+    height: 70px;
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.input-area .button-stack {
+    width: auto;
+    display: inline-block;
+    align-content: center;
+    padding: 10px;
+    min-width: 80px;
+    transition: background 0.2s ease-in-out;
+    /* vertical-align: middle; */
+}
+
+.button-stack{
+    display: flex;
+    flex-direction: column;
+    gap: .275rem;
+    align-content: center;
+    align-items: stretch;
+ 
+}
+
+.button-stack button {
+    width: 100%;
+}
+
+.button-stack .file-label {
+    width: 100%;
+    text-align: center;
+}
+/* #sendButton {
+    z-index: 2;
+} */
+
+#clearButton {
+    background-color: #e74310;
+    opacity: 0.9;
+}
+
+#clearButton:hover {
+    opacity: 1;
+}
+
+.input-area button:hover {
+    opacity: 1;
+}
+
+/* textarea {
+  flex: 1;
+  font-size: 14px;
+  
+  
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  resize: vertical;
+  width: 80%;
+} */
+input, select, button, #department{
+    width: 100%;
+    flex: 1;
+    font-size: 14px;
+    
+    margin-bottom: 10px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+#username{
+    padding: 9px;
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+button{
+    background: #218838;
+    color: white;
+    opacity: 0.9;
+    border: none;
+    display: inline;
+    border-radius: 4px;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
+#fileInput {
+    display: none !important;
+}
+
+/* File icon */
+.file-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.file-label img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.7;
+}
+
+.file-label:hover img {
+    opacity: 1;
+}
+
+#messageInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.4;
+    min-height: 32px;
+    max-height: 120px;
+    overflow-y: auto;
+    background: transparent;
+}
+
+.file-name {
+    font-size: 12px;
+    color: #666;
+    margin-top: 6px;
+    padding-left: 14px;
+}
+
+.file-link {
+    display: inline-block;
+    margin-top: 6px;
+    text-decoration: none;
+    color: #0056d6;
+    font-weight: 500;
+}
+
+.file-link:hover {
+    text-decoration: underline;
+}
+
+.file-caption p {
+    margin-bottom: 6px;
+}
+
+
+.button-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.button-stack > * {
+    width: 100%;
+}
+
+/* Send button */
+#sendButton {
+    background: #2ea44f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 8px;
+    cursor: pointer;
+}
+
+/* Clear button */
+#clearButton {
+    background: #f25f2c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 8px;
+    cursor: pointer;
+}
+
+
+/* ===============================
+   Mobile optimization
+================================ */
+
+@media (max-width: 480px) {
+  #chat-container {
+    padding: 14px;
+  }
+
+  #messages {
+    height: 220px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 13px;
+    padding: 7px;
+  }
+  #username{
+    padding: 9px;
+    width: 95%;
+    margin-bottom: 10px;
+    }
+.file-label {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+}
+
+
+/* ===============================
+   Tablet optimization
+================================ */
+@media (min-width: 481px) and (max-width: 768px) {
+  #chat-container {
+    max-width: 420px;
+  }
+}

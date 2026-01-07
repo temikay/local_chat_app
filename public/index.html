@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./accf_logo.jpg" type="image/x-icon">
+    <title>ACCF FUTA Chat App</title>
+    <link rel="stylesheet" href="chat.css">
+    
+</head>
+<body>
+    <div id="headerArea">
+        <img src="./accf_logo_head.png" alt="ACCF Logo" id="logo" class="logo">
+        <h1 id="mainTitle" >Welcome to the ACCF FUTA Chat App</h1>
+    </div>
+    <div id="chat-container">
+        
+        <!-- Join Section -->
+        <div id="joinSection">
+            <h2>Join Chat Room</h2>
+            <p>Select your department:</p>
+
+            <input placeholder="Your name" id="username" />
+
+            <select id="department">
+                <option value="">-- Select your department --</option>
+                <option value="Choir">Choir Unit</option>
+                <option value="Drama">Drama Unit</option>
+                <option value="Media">Media Unit</option>
+                <option value="Organizing">Organizing Unit</option>
+                <option value="Prayer">Prayer Unit</option>
+                <option value="Ushering">Ushering Unit</option>
+                <option value="Evangelism">Evangelism Unit</option>
+                <option value="Bible">Bible Study Unit</option>
+            </select>
+
+            <button id="join-button" onclick="joinChat()">Join Chat</button>
+        </div>
+
+        <!-- Chat Section -->
+        <div id="chatSection" class="hidden">
+            <h3 id="roomTitle"></h3>
+
+            <div id="messages"></div>
+
+            
+                <form id="chatForm">
+                    <div class="input-area">
+                        <input type="file" name="file" id="fileInput" hidden />
+                        <label for="fileInput" class="file-label">
+                            <img src="./file.png" alt="file_upload_logo">
+                        </label>
+                        
+
+                        <textarea 
+                            id="messageInput"  
+                            cols="40" 
+                            rows="3" 
+                            onkeydown="if(event.key === 'Enter' && !event.shiftKey){ event.preventDefault(); sendMessageWithFile(); }" 
+                            placeholder="Type your message here..."
+                        ></textarea>
+                        <div class="button-stack">
+                            <button id="sendButton"  onclick="sendMessageWithFile()">Send</button>
+                            <button id="clearButton"  onclick="clearMessages()">Clear</button>
+                        </div>
+                    </div>
+
+                    <div id="fileName">No file chosen</div>
+                </form>
+            
+        </div>
+    </div>
+
+    <!-- Socket.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./marked.min.js"></script>
+    <script src="./chat.js"></script>
+    <!-- <script>
+        const socket = io();
+
+        let username = '';
+        let department = '';
+
+        function joinChat() {
+            username = document.getElementById('username').value;
+            department = document.getElementById('department').value;
+
+            if (!username) {
+                alert('Please enter your name.');
+                return;
+            }
+
+            if (!department) {
+                alert('Please select your department.');
+                return;
+            }
+
+            socket.emit('joinDept', username);
+            socket.emit('join chat', { username, department });
+            document.getElementById('chatSection').classList.remove('hidden');
+            document.getElementById('joinSection').classList.add('hidden');
+            document.getElementById('roomTitle').innerText = `Chat Room: ${department}`;
+
+            addSystemMessage(`You have joined the ${department} chat room.`);
+        }
+
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value;
+            if (message) {
+                socket.emit('chat message', `${username}: ${message}`);
+                messageInput.value = '';
+            }
+        }
+
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value;
+            if (message) {
+                socket.emit('chat message', message);
+                messageInput.value = '';
+            }
+        });
+
+        socket.on('chat message', (msg) => {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = msg;
+            messagesDiv.appendChild(messageElement);
+        });
+
+        function addSystemMessage(msg) {
+            const messageElement = document.createElement('div');
+            messageElement.style.fontStyle = 'italic';
+            messageElement.textContent = msg;
+            messagesDiv.appendChild(messageElement);
+        }
+    </script> -->
+</body>
+</html>
